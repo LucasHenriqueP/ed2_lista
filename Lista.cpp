@@ -178,6 +178,20 @@ void Lista::selectionSort(void){
   return;
 }
 
+
+void Lista::insertionSort(void){
+  int i, j, elem;
+  for(i = 1; i < iSize-1; i++){
+    elem = listData[i];
+    j = i-1;
+    while(elem < listData[j] && j>=0){
+      listData[j+1] = listData[j];
+      j--;
+    }
+    listData[j+1] = elem;
+  }
+}
+
  int main(int argc, char const *argv[]) {
    Lista l1;
    l1.insert(10);
@@ -189,7 +203,8 @@ void Lista::selectionSort(void){
    l1.insert(653);
 
    l1.print();
-   l1.selectionSort();
+   //l1.selectionSort();
+   l1.insertionSort();
    l1.print();
   return 0;
 }

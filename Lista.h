@@ -41,6 +41,8 @@ class Lista
         void bubbleSort();
         // ordenacao pelo metodo selectionSort
         void selectionSort();
+        // Ordenacao pelo metodo InsertionSort
+        void insertionSort();
 
     protected:
 
