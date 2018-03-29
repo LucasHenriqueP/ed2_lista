@@ -186,6 +186,7 @@ void Lista::selectionSort(void){
    l1.insert(1);
    l1.insert(66);
    l1.insert(5);
+   l1.insert(653);
 
    l1.print();
    l1.selectionSort();
