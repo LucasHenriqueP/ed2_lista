@@ -43,6 +43,8 @@ class Lista
         void selectionSort();
         // Ordenacao pelo metodo InsertionSort
         void insertionSort();
+        // Ordenacao pelo metodo shellSort
+        void shellSort();
 
     protected:
 

@@ -178,6 +178,30 @@ void Lista::selectionSort(void){
   return;
 }
 
+void Lista::shellSort(void){
+  int i, j, elem, q, ju;
+  int k [7] = {1, 2, 3, 5, 7, 11, 13};
+  for(i = 0; i <7; i++){
+    if (k[i] >= iSize){
+      q = i - 1;
+    }
+  }
+  while(q >= 0){
+    ju = k[q];
+    for(i=ju; i< iSize-1; i++){
+      elem = listData[i];
+      j = i - ju;
+      while(elem < listData[j] && j>=0){
+          listData[j+ju] = listData[j];
+          j = j - ju;
+        }
+        listData[j+ju] = elem;
+    }
+    q--;
+  }
+
+}
+
 
 void Lista::insertionSort(void){
   int i, j, elem;
@@ -204,7 +228,8 @@ void Lista::insertionSort(void){
 
    l1.print();
    //l1.selectionSort();
-   l1.insertionSort();
+   //l1.insertionSort();
+   l1.shellSort();
    l1.print();
   return 0;
 }
