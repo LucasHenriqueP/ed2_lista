@@ -39,6 +39,8 @@ class Lista
 
         //ordenacao pelo m�todo bubbleSort
         void bubbleSort();
+        //Bubble sorte otimizado
+        void bubbleSortOtm();
         // ordenacao pelo metodo selectionSort
         void selectionSort();
         // Ordenacao pelo metodo InsertionSort

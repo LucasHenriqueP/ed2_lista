@@ -162,6 +162,30 @@ void Lista::bubbleSort(void)
     return;
 }
 
+void Lista::bubbleSortOtm(void)
+{
+    int i, j, aux, t;
+    for( i = 0; i < iSize; i++ )
+    {
+        t = 0;
+        for( j = i + 1; j < iSize; j++ ) // sempre 1 elemento � frente
+        {
+        // se o (x > (x+1)) ent�o o x passa pra frente (ordem crescente)
+            if ( listData[i] > listData[j] )
+            {
+                aux = listData[i];
+                listData[i] = listData[j];
+                listData[j] = aux;
+                t++;
+            }
+        }
+        if(t==0)
+            return;
+    } // fim da ordena��o
+    return;
+}
+
+
 void Lista::selectionSort(void){
   int i, j, maior, aux;
   for(i = iSize-1; i>=1; i--){
