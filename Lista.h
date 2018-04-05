@@ -47,6 +47,10 @@ class Lista
         void insertionSort();
         // Ordenacao pelo metodo shellSort
         void shellSort();
+        // Ordenacao pelo metodo mergeSort
+        void mergeSort();
+        int binarySearch(T);
+        int binarySearchAux(T, int, int);
 
     protected:
 

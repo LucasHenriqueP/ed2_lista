@@ -143,6 +143,27 @@ void Lista::print()const
     cout << "]"<<endl;
 }
 
+int Lista::binarySearch(T elem){
+  return binarySearchAux(elem, 0, iSize-1);
+}
+
+int Lista::binarySearchAux(T elem, int ini, int fim){
+  if(fim<ini){
+    return -1;
+  }
+
+  int calc = ini + (fim-ini)/2;
+
+  if(listData[calc] == elem)
+    return calc;
+  if(listData[calc] > elem){
+    return binarySearchAux(elem, ini, calc-1);
+  }
+  else{
+    return binarySearchAux(elem, calc+1, fim);
+  }
+}
+
 void Lista::bubbleSort(void)
 {
     int i, j, aux;
@@ -240,6 +261,10 @@ void Lista::insertionSort(void){
   }
 }
 
+void Lista::mergeSort(void){
+
+}
+
  int main(int argc, char const *argv[]) {
    Lista l1;
    l1.insert(10);
@@ -255,5 +280,7 @@ void Lista::insertionSort(void){
    //l1.insertionSort();
    l1.shellSort();
    l1.print();
+   int a = l1.binarySearch(100);
+   std::cout << a << '\n';
   return 0;
 }
