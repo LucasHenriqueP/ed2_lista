@@ -143,6 +143,13 @@ void Lista::print()const
     cout << "]"<<endl;
 }
 
+void Lista::troca(int i, int j){
+    T aux;
+    aux = listData[i];
+    listData[i] = listData[j];
+    listData[j] = aux;
+}
+
 int Lista::binarySearch(T elem){
   return binarySearchAux(elem, 0, iSize-1);
 }
@@ -206,6 +213,30 @@ void Lista::bubbleSortOtm(void)
     return;
 }
 
+void Lista::shakerSort(void){
+
+	int i, j, k;
+	for(i = 0; i < iSize-1;)
+	{
+
+		for(j = i+1; j < iSize-1; j++)
+		{
+			if(listData[j] < listData[j-1])
+				troca(j, j-1);
+		}
+		
+	
+ 
+
+		for(k = iSize-2; k > i; k--)
+		{
+			if(listData[k] < listData[k-1])
+				troca(k, k-1);
+		}
+		
+		i++;
+	}
+}
 
 void Lista::selectionSort(void){
   int i, j, maior, aux;
@@ -261,6 +292,21 @@ void Lista::insertionSort(void){
   }
 }
 
+void Lista::insertionSortBin(void){
+    int i, j, elem, pos;
+
+    for(i = 1; i < iSize-1; i++){
+    elem = listData[i];
+    j = i-1;
+    pos = binarySearchAux(elem, 0, j);
+    while(j >= pos){
+      listData[j+1] = listData[j];
+      j--;
+    }
+    listData[j+1] = elem;
+  }
+}
+
 void Lista::mergeSort(void){
 
 }
@@ -278,7 +324,9 @@ void Lista::mergeSort(void){
    l1.print();
    //l1.selectionSort();
    //l1.insertionSort();
-   l1.shellSort();
+   //l1.shellSort();
+   //l1.insertionSortBin();
+   l1.shakerSort();
    l1.print();
    int a = l1.binarySearch(100);
    std::cout << a << '\n';

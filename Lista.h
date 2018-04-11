@@ -45,12 +45,17 @@ class Lista
         void selectionSort();
         // Ordenacao pelo metodo InsertionSort
         void insertionSort();
+        // Ordenacao pelo metodo InsertionSort utilizando a busca binaria
+        void insertionSortBin();
         // Ordenacao pelo metodo shellSort
         void shellSort();
         // Ordenacao pelo metodo mergeSort
         void mergeSort();
+        // Ordenacao pelo metodo ShakerShort
+        void shakerSort();
         int binarySearch(T);
         int binarySearchAux(T, int, int);
+        void troca(int, int);
 
     protected:
 
