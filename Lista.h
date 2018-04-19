@@ -56,6 +56,9 @@ class Lista
         int binarySearch(T);
         int binarySearchAux(T, int, int);
         void troca(int, int);
+        void heapSort();
+        void buildHeap(int);
+        void maxHeapify(int, int);
 
     protected:
 

@@ -224,16 +224,16 @@ void Lista::shakerSort(void){
 			if(listData[j] < listData[j-1])
 				troca(j, j-1);
 		}
-		
-	
- 
+
+
+
 
 		for(k = iSize-2; k > i; k--)
 		{
 			if(listData[k] < listData[k-1])
 				troca(k, k-1);
 		}
-		
+
 		i++;
 	}
 }
@@ -311,8 +311,57 @@ void Lista::mergeSort(void){
 
 }
 
+void Lista::heapSort(){
+  int i;
+  i = iSize-1;
+  while(i > 0){
+    buildHeap(i);
+    i--;
+  }
+}
+
+void Lista::buildHeap(int tam){
+  int i;
+  for(i = (tam/2); i >= 0; i--){
+    maxHeapify(tam, i);
+
+  }
+  troca(0, tam);
+}
+
+void Lista::maxHeapify(int n, int i){
+  int e, d, maior;
+  maior = i;
+  //n = iSize -1;
+  e = (2 * i) + 1;
+  d = (2 * i) + 2;
+
+  if(e < n && listData[e] > listData[i])
+    maior = e;
+  else{
+    maior = i;
+  }
+  if(d < n && listData[d] > listData[maior])
+    maior = d;
+  if(maior != i) {
+    troca(i, maior);
+    //print();
+    maxHeapify(n, maior);
+  }
+
+}
+
+
  int main(int argc, char const *argv[]) {
    Lista l1;
+   int vet[] = {10, 26, 52, 76, 13, 8, 3, 33, 60, 42};
+   int i;
+   for(i = 0 ; i<10; i++){
+     //std::cout << vet[i] << '\n';
+     l1.insert(vet[i]);
+   }
+   //scanf("%d", &i);
+/*
    l1.insert(10);
    l1.insert(3);
    l1.insert(-50);
@@ -320,15 +369,16 @@ void Lista::mergeSort(void){
    l1.insert(66);
    l1.insert(5);
    l1.insert(653);
-
+*/
    l1.print();
    //l1.selectionSort();
    //l1.insertionSort();
    //l1.shellSort();
    //l1.insertionSortBin();
-   l1.shakerSort();
+   //l1.shakerSort();
+   l1.heapSort();
+   //int a = l1.binarySearch(100);
+   //std::cout << a << '\n';
    l1.print();
-   int a = l1.binarySearch(100);
-   std::cout << a << '\n';
   return 0;
 }
