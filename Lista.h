@@ -51,6 +51,8 @@ class Lista
         void shellSort();
         // Ordenacao pelo metodo mergeSort
         void mergeSort();
+        void mergeSrt(int, int);
+        void merge(int, int, int);
         // Ordenacao pelo metodo ShakerShort
         void shakerSort();
         int binarySearch(T);

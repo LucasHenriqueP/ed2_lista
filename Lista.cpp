@@ -308,7 +308,53 @@ void Lista::insertionSortBin(void){
 }
 
 void Lista::mergeSort(void){
+    mergeSrt(0 ,iSize-1);
+}
 
+void  Lista::mergeSrt(int ini, int fim){
+    int meio = ini + ((fim-ini)/2);
+    if(fim > ini){
+      cout << "ini " << ini << " fim " << fim << endl;
+      mergeSrt(ini, meio);
+      mergeSrt(meio+1, fim);
+      cout << "/* message */" << '\n';
+      merge(ini, meio, fim);
+    }
+}
+
+void Lista::merge(int ini, int meio, int fim){
+  int i = ini;
+  int j = meio+1;
+  int k = 0;
+  int aux[(fim-ini)+1];
+  for(i; i<=fim; i++){
+    aux[i] = listData[i];
+  }
+  i = ini;
+
+  while (i <= meio && j <= fim) {
+    if(aux[i] > aux[j]){
+      listData[k] = aux[j];
+      j++;
+    }
+    else{
+      listData[k] = aux[i];
+      i++;
+    }
+    k++;
+    /* code */
+  }
+  while(i <= meio){
+         listData[k] = aux[i];
+         i++;
+         k++;
+     }
+
+     while(j <= fim){
+         listData[k] = aux[j];
+         j++;
+         k++;
+     }
 }
 
 void Lista::heapSort(){
@@ -354,29 +400,25 @@ void Lista::maxHeapify(int n, int i){
 
  int main(int argc, char const *argv[]) {
    Lista l1;
-   int vet[] = {10, 26, 52, 76, 13, 8, 3, 33, 60, 42};
-   int i;
-   for(i = 0 ; i<10; i++){
-     //std::cout << vet[i] << '\n';
-     l1.insert(vet[i]);
-   }
+
    //scanf("%d", &i);
-/*
+
    l1.insert(10);
    l1.insert(3);
    l1.insert(-50);
    l1.insert(1);
    l1.insert(66);
    l1.insert(5);
-   l1.insert(653);
-*/
+   //l1.insert(653);
+
    l1.print();
    //l1.selectionSort();
    //l1.insertionSort();
    //l1.shellSort();
    //l1.insertionSortBin();
    //l1.shakerSort();
-   l1.heapSort();
+   //l1.heapSort();
+   l1.mergeSort();
    //int a = l1.binarySearch(100);
    //std::cout << a << '\n';
    l1.print();
